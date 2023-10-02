@@ -49,7 +49,7 @@ for i in range(size):
 
     
 # Generate the expected list with numbers 1 to n^2
-expected = [i for i in range(1, size**2 + 1)]
+expected = [i for i in range(1, (size**2) + 1)]
     
 # Flatten the 2D list into a 1D list
 flattened = values_list
