@@ -65,9 +65,10 @@ if flattened != expected:
 
 #Check rows
 for i in range(size):
-    if init_list[i][j] != init_list[i][2]:
-        print(f'Row {i} does not work! These are the values in row {i}: ', end = '')   
-        print(f'{init_list[i][j]}')
+    for j in range(size):
+        if init_list[j][i] != init_list[2][i]:
+            print(f'Row {i} does not work! These are the values in row {i}: ', end = '')   
+            print(f'{init_list[j][i]}')
     
 # Check columns
 for j in range(size):
@@ -88,7 +89,7 @@ for i in range(size):
         print('These are the values in diagonal 2: ', end = '')
         print(f'{init_list[i][(size - 1) - i]}')
 
-if (init_list[i][j] == magic_number) and (init_list[j][i] == magic_number) and (init_list[i][i] == magic_number) and (init_list[i][(size - 1) - i] == magic_number):
+if (init_list[j][i] == magic_number) and (init_list[j][i] == magic_number) and (init_list[i][i] == magic_number) and (init_list[i][(size - 1) - i] == magic_number):
     print('This is a magic square!')
 else:
     print('This is not a magic square!')
