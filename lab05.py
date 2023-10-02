@@ -66,33 +66,38 @@ if flattened != expected:
 #Check rows
 for i in range(size):
     for j in range(size):
-        if init_list[j][i] != init_list[2][i]:
-            print(f'Row {i} does not work! These are the values in row {i}: ', end = '')   
-            for i in range(i+1):
-                for j in range(i+1):
-                    print(f'{init_list[j][i]}')
+        total += init_list[j][i]
+    if total != magic_number:
+        print(f'Row {i} does not work! These are the values in row {i}: ', end = '')   
+        for i in range(size):
+            print(f'{init_list[j][i]}')
+        count = 0
     
 # Check columns
 for j in range(size):
-    if init_list[j][i] != init_list[j][2]:
-        print(f'Column {i} does not work! These are the values in column {i}: ', end = '')
-        for j in range(size):
-            print(f'{init_list[j][i]}')
+    total += init_list[j][2]
+if total != magic_number:
+    print(f'Column {i} does not work! These are the values in column {i}: ', end = '')
+    for j in range(size):
+        print(f'{init_list[j][i]}')
 
 #Check upper to lower diagonal
 for i in range(size):
-    if init_list[i][i] != init_list[0][0]:
-        print('Diagonal 1 does not work! ')
-        print('These are the values in diagonal 1: ', end = '')
-        for i in range(size):
-            print(f'{init_list[i][i]}')
+    total += init_list[i][i]
+if total != magic_number:
+    print('Diagonal 1 does not work! ')
+    print('These are the values in diagonal 1: ', end = '')
+    for i in range(size):
+        print(f'{init_list[i][i]}')
 
 #Check lower to upper diagonal
-    if init_list[i][(size - 1) - i] != init_list[0][size - 1]:
-        print('Diagonal 2 does not work! ')
-        print('These are the values in diagonal 2: ', end = '')
-        for i in range(size):
-            print(f'{init_list[i][(size - 1) - i]}')
+for i in range(size):
+    total += init_list[i][(size - 1) - i]
+if total != magic_number:
+    print('Diagonal 2 does not work! ')
+    print('These are the values in diagonal 2: ', end = '')
+    for i in range(size):
+        print(f'{init_list[i][(size - 1) - i]}')
 
 if (init_list[j][i] == magic_number) and (init_list[j][i] == magic_number) and (init_list[i][i] == magic_number) and (init_list[i][(size - 1) - i] == magic_number):
     print('This is a magic square!')
