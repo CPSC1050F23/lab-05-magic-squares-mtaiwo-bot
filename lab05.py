@@ -88,7 +88,7 @@ for i in range(size):
         print('These are the values in diagonal 2: ', end = '')
         print(f'{init_list[i][(size - 1) - i]}')
 
-if (init_list[i][j] == magic_number) or (init_list[j][i] == magic_number) or (init_list[i][i] == magic_number) or (init_list[i][(size - 1) - i] == magic_number):
+if (init_list[i][j] == magic_number) and (init_list[j][i] == magic_number) and (init_list[i][i] == magic_number) and (init_list[i][(size - 1) - i] == magic_number):
     print('This is a magic square!')
 else:
     print('This is not a magic square!')
