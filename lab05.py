@@ -83,8 +83,8 @@ for j in range(len(input_square)):
     for j in range (len(input_square)):
         total_column += input_square[j][i]
         column_string += str(input_square[j][i]) + " "
-        if total_column != magic_number:
-            print(f'Column {i} does not work! These are the values in column {i}: {column_string}')
+    if total_column != magic_number:
+        print(f'Column {i} does not work! These are the values in column {i}: {column_string}')
 
 
 #Check upper to lower diagonal
@@ -92,7 +92,7 @@ diagonal_string=""
 total_diagonal=0
 for i in range(len(input_square)):
     total_diagonal += input_square[i][i]
-    diagonal_string += str(input_square[i][i]) +" "
+    diagonal_string += str(input_square[i][i]) + " "
 if total_diagonal != magic_number:
     print('Diagonal 1 does not work! ')
     print(f'These are the values in diagonal 1: {diagonal_string}')
