@@ -5,7 +5,8 @@ Assignment:     Lab 05
 Course:         CPSC1051
 Lab Section:    003
 
-CODE DESCRIPTION:
+CODE DESCRIPTION: Asks user for size of a magic square and creates the 
+square with all rows, columns, and diagonals adding up to the magic number.
 
 """
 
