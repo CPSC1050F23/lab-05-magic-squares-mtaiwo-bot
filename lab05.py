@@ -69,7 +69,8 @@ for i in range(len(input_square)):
     row_string=""
     total_row=0
     for num in input_square[i]:
-        total_row += numrow_string += str(num)+" "
+        total_row += num
+        row_string += str(num) + " "
     if total_row != magic_number:
     if init_list[i][j] != magic_number:
         print(f'Row {i} does not work! These are the values in row {i}: {row_string}')   
