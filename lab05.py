@@ -31,70 +31,83 @@ print(f'The magic number for size {size} is {int(magic_number)}.')
 #Enter the magic square as a list of numbers
 print('Enter in the values separated by spaces: ')
 values = input().strip()
-values_list = values.split() # 1 2 3 4 5 -> ["1", "2", "3", "4", "5"]
+value_list = [] 
+input_square = []
 
-#Initialize a 2D list
-init_list = [['' for i in range(size)] for j in range(size)]
+for i in range(len(values)):
+    value_list.append(int(values[i]))
+    if i % size == size - 1:
+        input_square.append(value_list)
+        value_list = []
 
-#Convert each item to int type and store in the 2D list
-for i in range(size):
-    for j in range(size):
-        init_list[i][j] = values_list[i * size + j]
-
+#printing a 2d array (list)
 print('Your square:')
 for i in range(size):
     for j in range(size):
-        print(f"{init_list[i][j]}" , end= ' ') 
+        print(f"{init_list[i][j]}",end= ' ') 
     print('\n')
 
     
 # Generate the expected list with numbers 1 to n^2
-expected = [i for i in range(1, (size**2) + 1)]
-    
-# Flatten the 2D list into a 1D list
-flattened = values_list
+expected_list = []
+for i in range (1,size**2+1):
+    expected_list.append(i)
 
-    
-# Sort both lists
-expected.sort()
-flattened.sort()
+input_list=[]
+for i in range (len(input_square)):
+    for j in range (len(input_square)):
+        input_list.append(input_square[i][j])
     
 # Check if the sorted lists are equal
-if flattened != expected:
+input_list.sort()
+if input_list != expected_list:
     print(f'The input cannot be a magic square! There must be one of each value from 1 to {size**2}.')
+    
 
 #Check rows
-for i in range(size):
-    if init_list[j][i] != init_list[2][i]:
-        print(f'Row {i} does not work! These are the values in row {i}: ', end = '')   
-        for i in range(i+1):
-            for j in range(i+1):
-                print(f'{init_list[j][i]}')
+for i in range(len(input_square)):
+    row_string=""
+    total_row=0
+    for num in input_square[i]:
+        total_row += numrow_string += str(num)+" "
+    if total_row != magic_number:
+    if init_list[i][j] != magic_number:
+        print(f'Row {i} does not work! These are the values in row {i}: {row_string}')   
+
     
 # Check columns
-for j in range(size):
-    if init_list[j][i] != init_list[j][2]:
-        print(f'Column {i} does not work! These are the values in column {i}: ', end = '')
-        for j in range(size):
-            print(f'{init_list[j][i]}')
+for j in range(len(input_square)):
+    column_string=""
+    total_column=0
+    for j in range (len(input_square)):
+        total_column += input_square[j][i]
+        column_string += str(input_square[j][i]) + " "
+        if total_column != magic_number:
+            print(f'Column {i} does not work! These are the values in column {i}: {column_string}')
+
 
 #Check upper to lower diagonal
-for i in range(size):
-    if init_list[i][i] != init_list[0][0]:
-        print('Diagonal 1 does not work! ')
-        print('These are the values in diagonal 1: ', end = '')
-        for i in range(size):
-            print(f'{init_list[i][i]}')
+diagonal_string=""
+total_diagonal=0
+for i in range(len(input_square)):
+    total_diagonal += input_square[i][i]
+    diagonal_string += str(input_square[i][i]) +" "
+if total_diagonal != magic_number:
+    print('Diagonal 1 does not work! ')
+    print(f'These are the values in diagonal 1: {diagonal_string}')
 
 #Check lower to upper diagonal
-if init_list[i][(size - 1) - i] != init_list[0][size - 1]:
+diagonal_string=""
+total_diagonal=0
+for i in range(len(input_square)):
+    total_diagonal += input_square[i][size - 1 - i]
+    diagonal_string += str(input_square[i][size - 1 - i]) + " "
+if total_diagonal != magic_number:
     print('Diagonal 2 does not work! ')
-    print('These are the values in diagonal 2: ', end = '')
-    for i in range(size):
-        print(f'{init_list[i][(size - 1) - i]}')
+    print(f'These are the values in diagonal 2: {diagonal_string}')
 
 
-if (init_list[j][i] == magic_number) and (init_list[j][i] == magic_number) and (init_list[i][i] == magic_number) and (init_list[i][(size - 1) - i] == magic_number):
+if total_diagonal == total_column:
     print('This is a magic square!')
 else:
     print('This is not a magic square!')
