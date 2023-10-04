@@ -45,7 +45,7 @@ for i in range(len(values)):
 print('Your square:')
 for i in range(size):
     for j in range(size):
-        print(f"{init_list[i][j]}",end= ' ') 
+        print(f'{input_square[i][j]}',end=" ") 
     print('\n')
 
     
