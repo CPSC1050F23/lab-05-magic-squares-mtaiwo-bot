@@ -77,7 +77,7 @@ for i in range(len(input_square)):
 
     
 # Check columns
-for j in range(len(input_square)):
+for i in range(len(input_square)):
     column_string=""
     total_column=0
     for j in range (len(input_square)):
