@@ -27,11 +27,11 @@ for num in range(total_square_spaces+1):
     num_total += num
 
 magic_number = num_total / size
-print(f'The magic number for size {size} is {int(magic_number)}.')
+print(f'The magic number for size {size} is {magic_number:.0f}.')
 
 #Enter the magic square as a list of numbers
 print('Enter in the values separated by spaces: ')
-values = input().strip()
+values = input().split()
 value_list = [] 
 input_square = []
 
